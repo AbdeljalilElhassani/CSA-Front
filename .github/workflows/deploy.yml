@@ -7,11 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os: [macos-latest]
         node-version: ["14"]
 
     steps:
@@ -29,12 +28,6 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-      - name: Install Docker on macOS
-        run: |
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sh get-docker.sh
-        if: runner.os == 'macOS'
 
       - name: Build Docker image
         run: |

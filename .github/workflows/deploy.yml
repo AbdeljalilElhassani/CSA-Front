@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
         node-version: ["14"]
 
     steps:
@@ -21,7 +21,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "14"
+          timeout-minutes: 10 # Increase the timeout to 10 minutes
 
       - name: Install dependencies
         run: npm install --no-optional --legacy-peer-deps

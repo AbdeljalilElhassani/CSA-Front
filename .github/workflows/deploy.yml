@@ -23,6 +23,9 @@ jobs:
           node-version: "14"
           timeout-minutes: 10 # Increase the timeout to 10 minutes
 
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
         run: npm install --no-optional --legacy-peer-deps
 

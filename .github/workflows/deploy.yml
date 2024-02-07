@@ -34,7 +34,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t abdeljalilelhassani/csa-front .
-          docker login -u abdeljalilelhassani -p ${{ secrets.DOCKER_PASSWORD }}
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u abdeljalilelhassani --password-stdin
           docker push abdeljalilelhassani/csa-front
 
       #- name: Deploy to Docker
